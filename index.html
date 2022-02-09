@@ -26,22 +26,26 @@ c<!DOCTYPE html>
 			id="search-text"
 			/>	
       <input type="submit" value="🔎Search" />
-      <input type="submit" value="🗺 Current Location" id="current-button"/>
+     
     </form>
        
-     <div class="row currentweather">
-        <div class="col-7">
-          <div class="city" id="location">Amsterdam</div>
-            <div class="dayTimeWeek">Saturday 4:20pm</div>
-          <div class="weather">
-                    </div>
-          <div class="temperature" id="temperature">☀ 10°C</div>
-        </div>
-        <div class="col-4 my-auto">  
-        <div class="wind">Wind: 10mph</div>
- <div class="humidity">Humidity: 10%</div>
-          <div class="feels-like">Feels like: 15°</div>
-        </div>
+     <div class="row currentWeatherBox">
+        <div class="col-6">
+        <div class="city" id="location">Amsterdam</div>
+       <div class="dayTimeWeek"></div>
+        <div id="description"></div>
+        <div class="weather"></div>
+ <img src="" alt="" id="icon" class="float-left"/>
+           <strong id="temperature">°C</strong>
+         </div>
+        <div class="col-6">
+           <ul>
+             <li>Humidity: <span id="humidity"></span>%</li>
+             <li>Wind: <span id="wind"></span>Km/h </li>
+             <li>Feels like: <span id="feels-like"></span>°C</li>
+           </ul>
+          </div>
+        
       </div>
        <h2> Current Location: 
         <div class="currentLocation"> Amstelveen</div>

@@ -30,8 +30,6 @@ function displayDay() {
 }
 displayDay();
 
-
-
 function searchCity(event) {
   event.preventDefault();
   let search = document.querySelector("#search-text");
@@ -42,7 +40,7 @@ function searchCity(event) {
     let apiKey = "704c1ac4921f1b0774eeea454560dd2f";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${search.value}&appid=${apiKey}&units=metric`;
 
-    axios.get(apiUrl).then(returnLocation);
+    axios.get(apiUrl).then(displayTemperature);
   } else {
     location.innerHTML = null;
     alert("Please type a city");
@@ -52,45 +50,39 @@ let form = document.querySelector("#search-form");
 
 form.addEventListener("submit", searchCity);
 
-
-function returnLocation(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let location = response.data.name;
-  let cityElement = document.querySelector("#location");
-  cityElement.innerHTML = `${location}`;
+function displayTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `${temperature}°C`;
-  let wind = Math.round(response.data.wind.speed);
-  let windElement = document.querySelector(".wind");
-  windElement.innerHTML = `Wind: ${wind}mph`;
-
-  let feelsLike = Math.round(response.data.main.feels_like);
-  let feelsLikeElement = document.querySelector(".feels-like");
-  feelsLikeElement.innerHTML = `Feels like: ${feelsLike}°`;
-
-  let humidity = Math.round(response.data.main.humidity);
-  let humidityElement = document.querySelector(".humidity");
-  humidityElement.innerHTML = `Humidity: ${humidity}%`;
-
+  let locationElement = document.querySelector("#location");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let feelsLikeElement = document.querySelector("#feels-like");
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  locationElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
 }
 
+let apiKey = "704c1ac4921f1b0774eeea454560dd2f";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Amsterdam&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayTemperature);
+
 function showTemperature(response) {
-  let temperature = Math.round (response.data.main.temp);
+  let temperature = Math.round(response.data.main.temp);
   let location = document.querySelector("h2");
-  location.innerHTML =`Current temperature is ${temperature}°C in Amstelveen`;
+  location.innerHTML = `Current temperature is ${temperature}°C in Amstelveen`;
 }
 
 function retrievePosition(position) {
- let latitude = position.coords.latitude;
- let longitude = position.coords.longitude;
- let units= "metric"
- let apiKey = "704c1ac4921f1b0774eeea454560dd2f";
- let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let units = "metric";
+  let apiKey = "704c1ac4921f1b0774eeea454560dd2f";
+  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 
- axios.get (apiUrl).then(showTemperature);
-
-
+  axios.get(apiUrl).then(showTemperature);
 }
- navigator.geolocation.getCurrentPosition(retrievePosition);
-
-  
+navigator.geolocation.getCurrentPosition(retrievePosition);
