@@ -88,6 +88,14 @@ li:first-letter {
   text-align: center;
   color: #5585b5;
 }
+
+.units .active {
+  color: #5585b5;
+  cursor: default;
+}
+.units.active:hover {
+  text-decoration: none;
+}
 .temperature {
   font-size: 40px;
   text-align: center;
