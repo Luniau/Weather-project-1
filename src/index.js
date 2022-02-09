@@ -50,6 +50,8 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let feelsLikeElement = document.querySelector("#feels-like");
   let dateElement = document.querySelector(".dayTimeWeek");
+  let iconElement = document.querySelector("#icon");
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   locationElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -57,6 +59,7 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 let apiKey = "704c1ac4921f1b0774eeea454560dd2f";
