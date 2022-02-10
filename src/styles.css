@@ -101,7 +101,9 @@ li:first-letter {
   text-align: center;
   color: #5585b5;
 }
-
+.col-2 {
+  color: #5585b5;
+}
 
 .code {
   display: block;
