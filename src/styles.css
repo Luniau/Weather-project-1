@@ -101,13 +101,8 @@ li:first-letter {
   text-align: center;
   color: #5585b5;
 }
-.col {
-  border: solid #79c2d0;
-  border-radius: 4px;
-  margin: 5px 10px 5px 10px;
-  padding: 5px 10px;
-  width: 80px;
-}
+
+
 .code {
   display: block;
   text-align: center;
