@@ -1,7 +1,10 @@
-h1 {
+Body { background:linear-gradient(181.2deg, rgb(181, 239, 249) 10.5%, rgb(254, 254, 254) 86.8%);
+}
+  
+  h1 {
   text-align: center;
   font-size: 35px;
-  color: #5585b5;
+  color: #27296d;
 }
 
 input {
@@ -9,9 +12,9 @@ input {
   display: inline;
   padding: 3px;
   margin: 40px -50px 20px 50px;
-  background-color: #53a8b6;
-  border-color: #53a8b6;
-  border: 1px solid#53a8b6;
+  background-color: #2e94b9;
+  border-color: #2e94b9;
+  border: 1px solid#2e94b9;
   border-radius: 4px;
 }
 ul {
@@ -20,17 +23,19 @@ ul {
 }
 
 li {
+  
+  text-align: center;
   list-style: none;
   margin: 0;
-  padding: 0;
-  color: #5585b5;
+  padding:0;
+  color: #27296d;
 }
 
 
 p {
   text-align: center;
   font-size: 30px;
-  color: #5585b5;
+  color: #27296d;
   padding: 20px;
 }
 
@@ -41,7 +46,7 @@ div {
 }
 
 .container {
-  background: url("../img/bluesky.jpg");
+  background: url("../img/bluesky_950x783.jpeg");
   border: solid;
   border-radius: 4px;
   display: block;
@@ -62,7 +67,7 @@ li:first-letter {
   border-radius: 20px;
   background-color: -ms-clear;
   box-shadow: 1px 1px 1px 1px rgba(29, 28, 28, 0.582);
-  color: #5585b5;
+  color: #27296d;
   text-transform: capitalize;
 }
 
@@ -70,7 +75,7 @@ li:first-letter {
   font-size: 40px;
   padding-top: 20px;
   text-align: center;
-  color: #5585b5;
+  color: #27296d;
 }
 
 .dayTime,
@@ -78,15 +83,15 @@ li:first-letter {
 .feels-like,
 .humidity {
   font-size: 15px;
-  color: #5585b5;
+  color: #27296d;
 }
 .weather {
   text-align: center;
-  color: #5585b5;
+  color:#27296d;
 }
 
 .units .active {
-  color: #5585b5;
+  color:#27296d;
   cursor: default;
 }
 .units.active:hover {
@@ -95,15 +100,17 @@ li:first-letter {
 .temperature {
   font-size: 40px;
   text-align: center;
-  color: #5585b5;
+  color: #27296d;
 }
 .col-2 {
-  color: #5585b5;
+  color: #27296d;
 }
 
 .code {
   display: block;
   text-align: center;
+  margin: 0;
+  padding: 0;
   font-size: 13px;
   font-weight: normal;
   font-family: "Times New Roman", Times, serif;
