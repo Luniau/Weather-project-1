@@ -42,13 +42,14 @@ function formatDate(timestamp) {
   return `${day}, ${hours}: ${minutes}`;
 }
 
-function displayForecast(){
+function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function(day){
-    forecastHTML = forecastHTML +
-    `
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
      <div class="col-2">
        <div class="weather-forecast-date">${day}</div>
        <img
@@ -56,16 +57,16 @@ function displayForecast(){
          alt=""
          width="42"
        />
-       <div class="weather-forecast-temperature">
+       <div class="weather-forecast-temperature" >
          <span class="weather-forecast-temperature-max">18°</span>
          <span class="weather-forecast-temperature-min">12°</span>
        </div>
      </div>
-   `;});
- 
-  
-forecastHTML = forecastHTML +`</div>`;
-    forecastElement.innerHTML = forecastHTML;
+   `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function displayTemperature(response) {
@@ -78,7 +79,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector(".dayTimeWeek");
   let iconElement = document.querySelector("#icon");
 
-   celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   locationElement.innerHTML = response.data.name;
@@ -102,8 +103,8 @@ function displayfahrenheitTemperature(event) {
   event.preventDefault();
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
-   celsiusLink.classList.remove("active");
-   fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 function displayCelsiusTemperature(event) {
@@ -113,7 +114,6 @@ function displayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-
 
 let celsiusTemperature = null;
 displayForecast();
